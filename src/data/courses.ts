@@ -35,7 +35,7 @@ export const courses: Course[] = [
       'Automate redstone with AI logic',
       'Build & share your own world'
     ],
-    checkoutUrl: '#enroll-minecraft-ai',
+    checkoutUrl: 'https://buy.stripe.com/14A00c2Hu4D2d4cfyw7g400',
   },
   {
     id: 'roblox-ai',
@@ -56,7 +56,7 @@ export const courses: Course[] = [
       'Design levels, NPCs, and game mechanics',
       'Publish to Roblox for friends to play'
     ],
-    checkoutUrl: '#enroll-roblox-ai',
+    checkoutUrl: 'https://buy.stripe.com/bJe9AMa9W1qQ6FO2LK7g401',
   },
   {
     id: 'ai-chatbot',
@@ -76,7 +76,7 @@ export const courses: Course[] = [
       'Connect to real AI APIs',
       'Deploy your bot for others to use'
     ],
-    checkoutUrl: '#enroll-ai-chatbot',
+    checkoutUrl: 'https://buy.stripe.com/28EfZa0zm2uU4xGdqo7g402',
   },
   {
     id: 'ai-art',
@@ -96,7 +96,7 @@ export const courses: Course[] = [
       'Build a complete game asset library',
       'Design UI/UX for games and apps'
     ],
-    checkoutUrl: '#enroll-ai-art',
+    checkoutUrl: 'https://buy.stripe.com/bJeeV65TGglKc089a87g403',
   },
   {
     id: 'ai-webapp',
@@ -116,7 +116,7 @@ export const courses: Course[] = [
       'Learn deployment & hosting',
       'Portfolio project to show off'
     ],
-    checkoutUrl: '#enroll-ai-webapp',
+    checkoutUrl: 'https://buy.stripe.com/bJedR26XKfhG5BKgCA7g404',
   },
   {
     id: 'ai-music',
@@ -136,7 +136,7 @@ export const courses: Course[] = [
       'Build ambient soundscapes',
       'Mix and master your tracks'
     ],
-    checkoutUrl: '#enroll-ai-music',
+    checkoutUrl: 'https://buy.stripe.com/9B614gbe08Tic08big7g405',
   },
   {
     id: 'ai-gamemaker',
@@ -156,7 +156,7 @@ export const courses: Course[] = [
       'Learn game design & mechanics',
       'Share games with a URL'
     ],
-    checkoutUrl: '#enroll-ai-gamemaker',
+    checkoutUrl: 'https://buy.stripe.com/6oU8wI5TG7PeaW4fyw7g406',
   },
   {
     id: 'ai-video',
@@ -176,6 +176,6 @@ export const courses: Course[] = [
       'Design click-worthy thumbnails',
       'Build your content brand'
     ],
-    checkoutUrl: '#enroll-ai-video',
+    checkoutUrl: 'https://buy.stripe.com/5kQbIUci4c5u4xG1HG7g407',
   }
 ];
