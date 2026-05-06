@@ -1,6 +1,5 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import { StatsBar } from './StatsBar'
 
 function GridBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -156,7 +155,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm text-[13px] text-gray-400 mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm text-sm text-gray-400 mb-10">
             <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
             Now Enrolling — Limited Spots
           </div>
@@ -211,14 +210,24 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats — animated counters */}
+        {/* Value props instead of fake stats */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-20 md:mt-24"
+          className="mt-20 md:mt-24 flex flex-wrap justify-center gap-6 md:gap-10"
         >
-          <StatsBar />
+          {[
+            { icon: '⚡', text: 'Build from Day 1' },
+            { icon: '🎮', text: '8 AI Courses' },
+            { icon: '👶', text: 'Ages 8–16' },
+            { icon: '🛡️', text: 'Money-Back Guarantee' },
+          ].map(item => (
+            <div key={item.text} className="flex items-center gap-2 text-gray-400">
+              <span className="text-lg">{item.icon}</span>
+              <span className="text-sm font-medium">{item.text}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
 

@@ -176,7 +176,7 @@ export function MinecraftRoblox() {
                     background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.25) 100%)',
                   }} />
                   <p.Scene />
-                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-sm text-white text-xs font-bold">
+                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-sm text-white text-sm font-bold">
                     {p.badge}
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-dark-800/90 to-transparent" />
@@ -189,7 +189,7 @@ export function MinecraftRoblox() {
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {p.features.map(f => (
                       <div key={f} className="flex items-center gap-2 text-sm text-gray-300">
-                        <span className="text-neon-green text-xs">✓</span> {f}
+                        <span className="text-neon-green text-sm">✓</span> {f}
                       </div>
                     ))}
                   </div>

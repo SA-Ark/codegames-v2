@@ -42,7 +42,7 @@ export function StatsBar() {
           <div className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
             <AnimatedCounter target={stat.target} suffix={stat.suffix} />
           </div>
-          <div className="text-[12px] text-gray-600 mt-1.5 tracking-wide">{stat.label}</div>
+          <div className="text-sm text-gray-600 mt-1.5 tracking-wide">{stat.label}</div>
         </div>
       ))}
     </motion.div>

@@ -77,7 +77,7 @@ function CourseScene({ courseId, gradient }: { courseId: string; gradient: strin
           { side: 'right', y: '70%', w: 90, delay: 2.4, text: '' }, // typing indicator
         ].map((b, i) => (
           <motion.div key={i}
-            className={`absolute ${b.side === 'left' ? 'left-4' : 'right-4'} px-3 py-2 rounded-xl text-[10px] text-white/70 font-medium`}
+            className={`absolute ${b.side === 'left' ? 'left-4' : 'right-4'} px-3 py-2 rounded-xl text-sm text-white/70 font-medium`}
             style={{ top: b.y, maxWidth: b.w,
               background: b.side === 'left' ? 'rgba(255,255,255,0.12)' : 'rgba(249,115,22,0.25)',
               border: `1px solid ${b.side === 'left' ? 'rgba(255,255,255,0.15)' : 'rgba(249,115,22,0.3)'}`,
@@ -274,7 +274,7 @@ function CourseScene({ courseId, gradient }: { courseId: string; gradient: strin
           transition={{ duration: 1.5, repeat: Infinity }}
         >
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-          <span className="text-[10px] text-white/50 font-mono">REC</span>
+          <span className="text-sm text-white/50 font-mono">REC</span>
         </motion.div>
       </div>
     ),
@@ -321,11 +321,11 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
         <div className="relative">
           <div className="absolute -top-7 left-4 flex items-center gap-2">
             {course.featured && (
-              <span className="px-2 py-0.5 rounded-md bg-yellow-400/90 text-black text-[10px] font-bold shadow-lg">
+              <span className="px-2 py-0.5 rounded-md bg-yellow-400/90 text-black text-sm font-bold shadow-lg">
                 ★ POPULAR
               </span>
             )}
-            <span className="px-2 py-0.5 rounded-md bg-dark-800/80 backdrop-blur-sm text-white text-[10px] font-medium uppercase tracking-wider border border-white/10">
+            <span className="px-2 py-0.5 rounded-md bg-dark-800/80 backdrop-blur-sm text-white text-sm font-medium uppercase tracking-wider border border-white/10">
               {course.difficulty}
             </span>
           </div>
@@ -333,19 +333,19 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
 
         <div className="p-5 pt-4 flex-1 flex flex-col">
           <h3 className="text-base font-bold mb-1">{course.title}</h3>
-          <p className="text-[11px] text-neon-pink font-medium mb-2">{course.subtitle}</p>
-          <p className="text-gray-400 text-[13px] leading-relaxed mb-4 flex-1 line-clamp-2">{course.description}</p>
+          <p className="text-sm text-neon-pink font-medium mb-2">{course.subtitle}</p>
+          <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-2">{course.description}</p>
 
           {/* Spots */}
           <div className="flex items-center gap-2 mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
-            <span className="text-[11px] text-neon-green font-medium">
+            <span className="text-sm text-neon-green font-medium">
               {3 + (course.id.charCodeAt(0) % 5)} spots left
             </span>
           </div>
 
           <div className="flex items-center justify-between pt-3 border-t border-white/[0.04]">
-            <div className="flex items-center gap-2 text-[11px] text-gray-500">
+            <div className="flex items-center gap-2 text-sm text-gray-500">
               <span>{course.sessions} sessions</span>
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span>Ages {course.ageRange}</span>
@@ -389,20 +389,20 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
             <h2 className="text-2xl font-extrabold">{course.title}</h2>
             <p className="text-white/70 text-sm mt-1">{course.subtitle}</p>
             <div className="flex flex-wrap gap-2 mt-3">
-              <span className="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm text-xs text-white/80">{course.sessions} sessions</span>
-              <span className="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm text-xs text-white/80">Ages {course.ageRange}</span>
-              <span className="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm text-xs text-white/80">{course.difficulty}</span>
+              <span className="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm text-sm text-white/80">{course.sessions} sessions</span>
+              <span className="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm text-sm text-white/80">Ages {course.ageRange}</span>
+              <span className="px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-sm text-sm text-white/80">{course.difficulty}</span>
             </div>
           </div>
         </div>
 
         {/* Highlights */}
         <div className="px-8 py-5 border-b border-white/[0.04]">
-          <h3 className="font-bold text-xs text-gray-500 uppercase tracking-widest mb-3">What You'll Build</h3>
+          <h3 className="font-bold text-sm text-gray-500 uppercase tracking-widest mb-3">What You'll Build</h3>
           <div className="grid grid-cols-2 gap-2">
             {course.highlights.map(h => (
               <div key={h} className="flex items-start gap-2 text-sm text-gray-300">
-                <span className="text-neon-green mt-0.5 text-xs">✓</span>
+                <span className="text-neon-green mt-0.5 text-sm">✓</span>
                 {h}
               </div>
             ))}
@@ -411,7 +411,7 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
 
         {/* Curriculum */}
         <div className="px-8 py-5 overflow-y-auto flex-1">
-          <h3 className="font-bold text-xs text-gray-500 uppercase tracking-widest mb-4">Full Curriculum</h3>
+          <h3 className="font-bold text-sm text-gray-500 uppercase tracking-widest mb-4">Full Curriculum</h3>
           {curriculum ? (
             <div className="space-y-3">
               {curriculum.sessions.map(session => (
@@ -422,7 +422,7 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
                     </span>
                     <div className="flex-1 min-w-0">
                       <span className="font-semibold text-sm block">{session.title}</span>
-                      <p className="text-xs text-gray-500 truncate">{session.description}</p>
+                      <p className="text-sm text-gray-500 truncate">{session.description}</p>
                     </div>
                     <span className="text-gray-600 group-open:rotate-90 transition-transform text-lg">›</span>
                   </summary>
@@ -432,19 +432,19 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
                         <p className="font-medium text-sm mb-2">{lesson.title}</p>
                         <div className="space-y-1">
                           {lesson.objectives.map((obj, oi) => (
-                            <p key={oi} className="text-xs text-gray-400 flex items-start gap-2">
+                            <p key={oi} className="text-sm text-gray-400 flex items-start gap-2">
                               <span className="text-neon-pink">→</span> {obj}
                             </p>
                           ))}
                         </div>
                         <div className="flex flex-wrap gap-1 mt-2">
                           {lesson.aiTools.map(tool => (
-                            <span key={tool} className="px-2 py-0.5 rounded bg-neon-orange/10 text-neon-orange text-[10px] font-medium">
+                            <span key={tool} className="px-2 py-0.5 rounded bg-neon-orange/10 text-neon-orange text-sm font-medium">
                               {tool}
                             </span>
                           ))}
                         </div>
-                        <p className="text-[11px] text-neon-green mt-2 font-medium">🎯 {lesson.project}</p>
+                        <p className="text-sm text-neon-green mt-2 font-medium">🎯 {lesson.project}</p>
                       </div>
                     ))}
                   </div>

@@ -4,8 +4,8 @@ import { HowItWorks } from './components/HowItWorks'
 import { CourseGrid } from './components/CourseGrid'
 import { MinecraftRoblox } from './components/MinecraftRoblox'
 import { WhyAI } from './components/WhyAI'
-import { Instructors } from './components/Instructors'
-import { Testimonials } from './components/Testimonials'
+import { OldVsNew } from './components/OldVsNew'
+import { WhatYoullBuild } from './components/WhatYoullBuild'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 import { GlobalEffects } from './components/GlobalEffects'
@@ -29,11 +29,11 @@ function App() {
       <Divider />
       <CourseGrid />
       <Divider />
+      <WhatYoullBuild />
+      <Divider />
+      <OldVsNew />
+      <Divider />
       <WhyAI />
-      <Divider />
-      <Instructors />
-      <Divider />
-      <Testimonials />
       <Divider />
       <FAQ />
       <Footer />

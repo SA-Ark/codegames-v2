@@ -72,10 +72,10 @@ export function Testimonials() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.detail}</p>
+                  <p className="text-sm text-gray-500">{t.detail}</p>
                 </div>
                 <div className="ml-auto">
-                  <span className="text-[10px] px-2 py-1 rounded-full bg-neon-orange/10 text-neon-orange font-medium">
+                  <span className="text-sm px-2 py-1 rounded-full bg-neon-orange/10 text-neon-orange font-medium">
                     {t.course}
                   </span>
                 </div>

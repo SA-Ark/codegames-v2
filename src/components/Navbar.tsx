@@ -39,14 +39,14 @@ export function Navbar() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
           {links.map(l => (
-            <a key={l.href} href={l.href} className="px-3.5 py-1.5 text-[13px] text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">
+            <a key={l.href} href={l.href} className="px-3.5 py-1.5 text-sm text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">
               {l.label}
             </a>
           ))}
           <div className="w-px h-4 bg-white/[0.06] mx-2" />
           <a
             href="#courses"
-            className="ml-1 px-4 py-1.5 rounded-lg bg-white/[0.06] border border-white/[0.06] text-white text-[13px] font-medium hover:bg-white/[0.1] hover:border-white/[0.1] transition-all"
+            className="ml-1 px-4 py-1.5 rounded-lg bg-white/[0.06] border border-white/[0.06] text-white text-sm font-medium hover:bg-white/[0.1] hover:border-white/[0.1] transition-all"
           >
             Start Learning
           </a>

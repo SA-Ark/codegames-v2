@@ -44,19 +44,19 @@ export function StudentGallery() {
               {/* Project header */}
               <div className={`h-24 bg-gradient-to-br ${p.gradient} flex items-center justify-center relative`}>
                 <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{p.icon}</span>
-                <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/30 backdrop-blur-sm text-[10px] text-white font-medium">
+                <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/30 backdrop-blur-sm text-sm text-white font-medium">
                   {p.course}
                 </div>
               </div>
 
               <div className="p-5">
                 <h3 className="font-bold text-sm mb-1">{p.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed mb-3 font-light">{p.description}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-3 font-light">{p.description}</p>
                 <div className="flex items-center gap-2 pt-3 border-t border-white/[0.04]">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neon-orange/30 to-neon-pink/30 flex items-center justify-center text-[9px] font-bold text-white/70">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neon-orange/30 to-neon-pink/30 flex items-center justify-center text-sm font-bold text-white/70">
                     {p.student.split(',')[0][0]}
                   </div>
-                  <span className="text-[11px] text-gray-500">Built by <span className="text-gray-300">{p.student}</span></span>
+                  <span className="text-sm text-gray-500">Built by <span className="text-gray-300">{p.student}</span></span>
                 </div>
               </div>
             </motion.div>

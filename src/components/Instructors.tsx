@@ -68,14 +68,14 @@ export function Instructors() {
               </div>
 
               <h3 className="text-lg font-bold mb-1">{inst.name}</h3>
-              <p className="text-neon-pink text-xs font-medium mb-3">{inst.role}</p>
+              <p className="text-neon-pink text-sm font-medium mb-3">{inst.role}</p>
               <p className="text-gray-400 text-sm leading-relaxed mb-4 font-light">{inst.bio}</p>
 
-              <div className="text-[11px] text-gray-500 mb-3">{inst.stats}</div>
+              <div className="text-sm text-gray-500 mb-3">{inst.stats}</div>
 
               <div className="flex flex-wrap justify-center gap-1.5">
                 {inst.courses.map(c => (
-                  <span key={c} className="px-2 py-0.5 rounded-full bg-white/[0.04] text-gray-400 text-[10px] border border-white/[0.03]">
+                  <span key={c} className="px-2 py-0.5 rounded-full bg-white/[0.04] text-gray-400 text-sm border border-white/[0.03]">
                     {c}
                   </span>
                 ))}
