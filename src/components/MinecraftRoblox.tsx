@@ -48,17 +48,31 @@ export function MinecraftRoblox() {
           {platforms.map((p, i) => (
             <GlowCard key={p.name} glowColor={p.glowColor} className="rounded-2xl">
               <div className="glass-card rounded-2xl overflow-hidden h-full">
-                <div className={`h-44 bg-gradient-to-br ${p.gradient} flex items-center justify-center relative overflow-hidden`}>
-                  <motion.span
-                    className="text-8xl drop-shadow-2xl"
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                  >
-                    {p.icon}
-                  </motion.span>
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm text-white text-xs font-bold">
+                <div className={`h-48 bg-gradient-to-br ${p.gradient} relative overflow-hidden`}>
+                  {/* Geometric overlay */}
+                  <div className="absolute inset-0 opacity-[0.1]" style={{
+                    backgroundImage: `radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3) 1px, transparent 1px),
+                      radial-gradient(circle at 70% 60%, rgba(255,255,255,0.2) 1px, transparent 1px)`,
+                    backgroundSize: '30px 30px, 45px 45px',
+                  }} />
+                  <div className="absolute inset-0 opacity-[0.06]" style={{
+                    backgroundImage: 'repeating-linear-gradient(135deg, transparent, transparent 12px, rgba(255,255,255,0.4) 12px, rgba(255,255,255,0.4) 13px)',
+                  }} />
+                  <div className="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-white/10 blur-3xl" />
+                  <div className="absolute -left-6 -top-6 w-28 h-28 rounded-full bg-black/15 blur-2xl" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      className="w-24 h-24 rounded-2xl bg-black/20 backdrop-blur-sm flex items-center justify-center shadow-xl border border-white/10"
+                      animate={{ y: [0, -6, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+                    >
+                      <span className="text-5xl">{p.icon}</span>
+                    </motion.div>
+                  </div>
+                  <div className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-black/30 backdrop-blur-sm text-white text-xs font-bold">
                     {p.badge}
                   </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-dark-800/80 to-transparent" />
                 </div>
 
                 <div className="p-8">

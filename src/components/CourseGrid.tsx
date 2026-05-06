@@ -24,19 +24,38 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
       className="rounded-2xl"
     >
       <div className="glass-card rounded-2xl overflow-hidden h-full flex flex-col">
-        {/* Gradient header */}
-        <div className={`h-36 bg-gradient-to-br ${course.gradient} flex items-center justify-center relative overflow-hidden`}>
-          {/* Animated shine overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          <span className="text-6xl drop-shadow-lg">{course.icon}</span>
+        {/* Card header — abstract pattern with icon */}
+        <div className={`h-40 bg-gradient-to-br ${course.gradient} relative overflow-hidden`}>
+          {/* Geometric pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.15]" style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 1px, transparent 1px),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 1px, transparent 1px),
+              radial-gradient(circle at 60% 80%, rgba(255,255,255,0.25) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px, 60px 60px, 50px 50px',
+          }} />
+          {/* Large blurred accent circle */}
+          <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/10 blur-2xl" />
+          <div className="absolute -left-4 -bottom-4 w-24 h-24 rounded-full bg-black/10 blur-xl" />
+          {/* Diagonal lines */}
+          <div className="absolute inset-0 opacity-[0.06]" style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.5) 10px, rgba(255,255,255,0.5) 11px)',
+          }} />
+          {/* Icon container */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-20 h-20 rounded-2xl bg-black/20 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/10">
+              <span className="text-4xl">{course.icon}</span>
+            </div>
+          </div>
           {course.featured && (
-            <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-yellow-400/90 text-black text-[11px] font-bold shadow-lg">
-              ⭐ POPULAR
+            <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-yellow-400/90 text-black text-[10px] font-bold shadow-lg">
+              ★ POPULAR
             </div>
           )}
-          <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white text-[11px] font-medium uppercase tracking-wider">
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-sm text-white text-[10px] font-medium uppercase tracking-wider">
             {course.difficulty}
           </div>
+          {/* Bottom fade into card */}
+          <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-dark-800/80 to-transparent" />
         </div>
 
         <div className="p-6 flex-1 flex flex-col">
@@ -97,17 +116,26 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
         className="bg-dark-800/95 backdrop-blur-xl rounded-3xl border border-white/[0.08] max-w-3xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl shadow-black/50"
       >
         {/* Header */}
-        <div className={`p-8 bg-gradient-to-br ${course.gradient} relative`}>
-          <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/50 transition">
+        <div className={`p-8 bg-gradient-to-br ${course.gradient} relative overflow-hidden`}>
+          {/* Pattern */}
+          <div className="absolute inset-0 opacity-[0.08]" style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.5) 10px, rgba(255,255,255,0.5) 11px)',
+          }} />
+          <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-white/10 blur-3xl" />
+          <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/50 transition z-10">
             ✕
           </button>
-          <span className="text-5xl block mb-3 drop-shadow-lg">{course.icon}</span>
-          <h2 className="text-2xl font-extrabold">{course.title}</h2>
-          <p className="text-white/80 text-sm mt-1">{course.subtitle}</p>
-          <div className="flex gap-4 mt-4 text-sm text-white/70">
-            <span className="px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm">🎓 {course.sessions} sessions</span>
-            <span className="px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm">👶 Ages {course.ageRange}</span>
-            <span className="px-3 py-1 rounded-full bg-black/20 backdrop-blur-sm">📊 {course.difficulty}</span>
+          <div className="relative z-10">
+            <div className="w-14 h-14 rounded-xl bg-black/20 backdrop-blur-sm flex items-center justify-center mb-4 border border-white/10">
+              <span className="text-3xl">{course.icon}</span>
+            </div>
+            <h2 className="text-2xl font-extrabold">{course.title}</h2>
+            <p className="text-white/80 text-sm mt-1">{course.subtitle}</p>
+          </div>
+          <div className="flex flex-wrap gap-2 mt-4 relative z-10">
+            <span className="px-3 py-1 rounded-md bg-black/20 backdrop-blur-sm text-sm text-white/70">{course.sessions} sessions</span>
+            <span className="px-3 py-1 rounded-md bg-black/20 backdrop-blur-sm text-sm text-white/70">Ages {course.ageRange}</span>
+            <span className="px-3 py-1 rounded-md bg-black/20 backdrop-blur-sm text-sm text-white/70">{course.difficulty}</span>
           </div>
         </div>
 
