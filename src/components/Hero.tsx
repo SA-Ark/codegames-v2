@@ -218,9 +218,9 @@ export function Hero() {
           className="mt-20 md:mt-24 flex flex-wrap justify-center gap-6 md:gap-10"
         >
           {[
-            { icon: '⚡', text: 'Build from Day 1' },
-            { icon: '🎮', text: '8 AI Courses' },
-            { icon: '👶', text: 'Ages 8–16' },
+            { icon: '🧠', text: 'AI-First Curriculum' },
+            { icon: '🎮', text: 'Minecraft, Roblox & More' },
+            { icon: '🚀', text: 'Build Real Projects' },
             { icon: '🛡️', text: 'Money-Back Guarantee' },
           ].map(item => (
             <div key={item.text} className="flex items-center gap-2 text-gray-400">

@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react'
 
-/**
- * Sticky mobile CTA bar that appears after scrolling past the hero.
- * Shows on mobile only (md:hidden).
- */
 export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false)
 
@@ -19,14 +15,14 @@ export function StickyMobileCTA() {
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
       <div className="bg-dark-900/90 backdrop-blur-xl border-t border-white/[0.06] px-4 py-3 flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-sm text-gray-400 truncate">Summer cohort filling fast</p>
-          <p className="text-sm font-semibold text-white truncate">Courses from $199</p>
+          <p className="text-sm text-gray-400 truncate">All courses included</p>
+          <p className="text-sm font-semibold text-white truncate">Subscribe & start building</p>
         </div>
         <a
           href="#courses"
-          className="flex-shrink-0 px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-orange to-neon-pink text-white text-sm font-semibold whitespace-nowrap"
+          className="flex-shrink-0 px-5 py-2.5 rounded-full bg-neon-green text-dark-900 text-sm font-bold whitespace-nowrap"
         >
-          Enroll Now
+          Start Learning
         </a>
       </div>
     </div>

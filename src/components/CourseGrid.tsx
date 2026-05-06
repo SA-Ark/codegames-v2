@@ -350,8 +350,8 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span>Ages {course.ageRange}</span>
             </div>
-            <span className="text-lg font-bold text-neon-pink">
-              {course.price}
+            <span className="text-sm font-medium text-neon-green">
+              Included
             </span>
           </div>
         </div>
@@ -458,12 +458,17 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
 
         {/* CTA */}
         <div className="px-8 py-5 border-t border-white/[0.04] flex items-center justify-between bg-dark-900/50">
-          <span className="text-2xl font-extrabold bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent">
-            {course.price}
-          </span>
-          <a href={course.checkoutUrl} className="px-6 py-3 rounded-full bg-gradient-to-r from-neon-orange to-neon-pink text-white font-semibold hover:shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:scale-105 transition-all">
-            Enroll Now →
-          </a>
+          <div>
+            <span className="text-sm text-gray-400">Included with subscription</span>
+          </div>
+          <div className="flex gap-3">
+            <a href="#courses" className="px-5 py-2.5 rounded-full bg-white/[0.06] border border-white/[0.06] text-white text-sm font-medium hover:bg-white/[0.1] transition-all">
+              Book a Call
+            </a>
+            <a href={course.checkoutUrl} className="px-5 py-2.5 rounded-full bg-neon-green text-dark-900 font-bold hover:bg-green-400 hover:scale-105 transition-all text-sm">
+              Start Learning →
+            </a>
+          </div>
         </div>
       </motion.div>
     </motion.div>

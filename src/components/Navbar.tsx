@@ -46,7 +46,7 @@ export function Navbar() {
           <div className="w-px h-4 bg-white/[0.06] mx-2" />
           <a
             href="#courses"
-            className="ml-1 px-4 py-1.5 rounded-lg bg-white/[0.06] border border-white/[0.06] text-white text-sm font-medium hover:bg-white/[0.1] hover:border-white/[0.1] transition-all"
+            className="ml-1 px-5 py-1.5 rounded-lg bg-neon-green text-dark-900 text-sm font-bold hover:bg-green-400 transition-all shadow-md shadow-neon-green/20"
           >
             Start Learning
           </a>
@@ -78,7 +78,7 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
-              <a href="#courses" onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 rounded-lg bg-white/[0.06] border border-white/[0.06] text-white text-sm font-medium text-center hover:bg-white/[0.1] transition-all">
+              <a href="#courses" onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 rounded-lg bg-neon-green text-dark-900 text-sm font-bold text-center hover:bg-green-400 transition-all">
                 Start Learning
               </a>
             </div>
