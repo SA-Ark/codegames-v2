@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
@@ -9,65 +9,76 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handler)
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: 'spring', stiffness: 100 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-xl border-b border-white/5"
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-dark-900/70 backdrop-blur-2xl border-b border-white/[0.04] shadow-[0_1px_30px_rgba(0,0,0,0.3)]'
+          : 'bg-transparent border-b border-transparent'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2 text-xl font-bold">
-          <span className="text-2xl">🎮</span>
-          <span className="bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-2 text-base font-bold">
+          <span className="text-lg">🎮</span>
+          <span className="bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent font-extrabold tracking-tight">
             AI Games Academy
           </span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {links.map(l => (
-            <a key={l.href} href={l.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+            <a key={l.href} href={l.href} className="px-3.5 py-1.5 text-[13px] text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]">
               {l.label}
             </a>
           ))}
+          <div className="w-px h-4 bg-white/[0.06] mx-2" />
           <a
             href="#courses"
-            className="px-5 py-2 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="ml-1 px-4 py-1.5 rounded-lg bg-white/[0.06] border border-white/[0.06] text-white text-[13px] font-medium hover:bg-white/[0.1] hover:border-white/[0.1] transition-all"
           >
             Start Learning
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white p-2">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Mobile */}
+        <button onClick={() => setOpen(!open)} className="md:hidden text-gray-400 hover:text-white p-1.5 rounded-lg hover:bg-white/[0.04] transition-colors">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark-800 border-b border-white/5"
+            className="md:hidden bg-dark-900/95 backdrop-blur-2xl border-b border-white/[0.04]"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
+            <div className="px-6 py-4 flex flex-col gap-1">
               {links.map(l => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-gray-400 hover:text-white transition-colors">
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="px-3 py-2.5 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04] text-sm">
                   {l.label}
                 </a>
               ))}
-              <a href="#courses" onClick={() => setOpen(false)} className="px-5 py-2 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white text-sm font-semibold text-center">
+              <a href="#courses" onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 rounded-lg bg-white/[0.06] border border-white/[0.06] text-white text-sm font-medium text-center hover:bg-white/[0.1] transition-all">
                 Start Learning
               </a>
             </div>

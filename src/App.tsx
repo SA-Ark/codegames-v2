@@ -6,6 +6,7 @@ import { MinecraftRoblox } from './components/MinecraftRoblox'
 import { WhyAI } from './components/WhyAI'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
+import { GlobalEffects } from './components/GlobalEffects'
 
 function Divider() {
   return <div className="section-divider" />
@@ -13,7 +14,8 @@ function Divider() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark-900 text-white">
+    <div className="min-h-screen bg-dark-900 text-white custom-cursor">
+      <GlobalEffects />
       <Navbar />
       <Hero />
       <Divider />
