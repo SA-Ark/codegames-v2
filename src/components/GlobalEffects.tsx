@@ -58,15 +58,19 @@ export function GlobalEffects() {
 
     // Cursor state changes on interactive elements
     const handleHover = () => {
-      ring.style.width = '44px'
-      ring.style.height = '44px'
-      ring.style.borderColor = 'rgba(168, 85, 247, 0.5)'
-      cursor.style.opacity = '0'
+      ring.style.width = '52px'
+      ring.style.height = '52px'
+      ring.style.marginLeft = '-26px'
+      ring.style.marginTop = '-26px'
+      ring.style.borderColor = 'rgba(168, 85, 247, 0.4)'
+      cursor.style.opacity = '0.5'
     }
     const handleLeave = () => {
-      ring.style.width = '32px'
-      ring.style.height = '32px'
-      ring.style.borderColor = 'rgba(255, 255, 255, 0.15)'
+      ring.style.width = '40px'
+      ring.style.height = '40px'
+      ring.style.marginLeft = '-20px'
+      ring.style.marginTop = '-20px'
+      ring.style.borderColor = 'rgba(255, 255, 255, 0.12)'
       cursor.style.opacity = '1'
     }
 
@@ -99,17 +103,21 @@ export function GlobalEffects() {
 
   return (
     <>
-      {/* Custom cursor dot */}
+      {/* Custom cursor — arrow-like shape */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[5px] h-[5px] -ml-[2.5px] -mt-[2.5px] rounded-full bg-white pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] hidden md:block"
         style={{ transition: 'opacity 0.2s' }}
-      />
+      >
+        <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L1 19L6 14L11 22L14 20.5L9 12.5L16 11L1 1Z" fill="rgba(168,85,247,0.9)" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
+        </svg>
+      </div>
       {/* Cursor ring */}
       <div
         ref={cursorRingRef}
-        className="fixed top-0 left-0 w-[32px] h-[32px] -ml-[16px] -mt-[16px] rounded-full border border-white/[0.15] pointer-events-none z-[9999] hidden md:block"
-        style={{ transition: 'width 0.2s, height 0.2s, border-color 0.2s, margin 0.2s' }}
+        className="fixed top-0 left-0 w-[40px] h-[40px] -ml-[20px] -mt-[20px] rounded-full border-2 border-white/[0.12] pointer-events-none z-[9999] hidden md:block"
+        style={{ transition: 'width 0.25s, height 0.25s, border-color 0.25s, margin 0.25s' }}
       />
       {/* Ripple container */}
       <div ref={rippleContainerRef} className="fixed inset-0 pointer-events-none z-[9998]" />

@@ -23,7 +23,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left p-5 flex items-start justify-between gap-4 glass-card rounded-xl group"
+        className="w-full text-left p-5 md:p-6 flex items-start justify-between gap-4 glass-card rounded-xl group"
       >
         <span className="font-semibold text-sm md:text-base">{faq.q}</span>
         <motion.span
@@ -42,7 +42,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="px-5 py-4 text-gray-400 text-sm leading-relaxed">
+            <div className="px-5 md:px-6 py-4 text-gray-400 text-sm md:text-base leading-relaxed">
               {faq.a}
             </div>
           </motion.div>
@@ -54,29 +54,52 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-28 px-6">
-      <div className="max-w-3xl mx-auto">
+    <section id="faq" className="py-24 md:py-28 px-6">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <p className="text-neon-green text-sm font-semibold tracking-widest uppercase mb-4">For Parents</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Got{' '}
             <span className="bg-gradient-to-r from-neon-cyan to-neon-green bg-clip-text text-transparent">
               Questions?
             </span>
           </h2>
-          <p className="text-gray-400">Here are the most common ones from parents.</p>
+          <p className="text-gray-400 text-sm md:text-base">Here are the most common ones from parents.</p>
         </motion.div>
 
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <FAQItem key={i} faq={faq} index={i} />
-          ))}
+        <div className="grid md:grid-cols-2 gap-3">
+          <div className="space-y-3">
+            {faqs.slice(0, 4).map((faq, i) => (
+              <FAQItem key={i} faq={faq} index={i} />
+            ))}
+          </div>
+          <div className="space-y-3">
+            {faqs.slice(4).map((faq, i) => (
+              <FAQItem key={i + 4} faq={faq} index={i + 4} />
+            ))}
+          </div>
         </div>
+
+        {/* Money-back guarantee */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-10 text-center"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-card">
+            <span className="text-2xl">🛡️</span>
+            <span className="text-sm text-gray-300">
+              <span className="font-semibold text-white">100% Money-Back Guarantee</span>
+              {' '}— Full refund after the first session, no questions asked.
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

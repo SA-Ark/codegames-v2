@@ -30,7 +30,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-28 px-6 relative">
+    <section id="how-it-works" className="py-20 md:py-28 px-4 md:px-6 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export function HowItWorks() {
           className="text-center mb-20"
         >
           <p className="text-neon-cyan text-sm font-semibold tracking-widest uppercase mb-4">Simple Process</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             How It{' '}
             <span className="bg-gradient-to-r from-neon-cyan to-neon-green bg-clip-text text-transparent">
               Works

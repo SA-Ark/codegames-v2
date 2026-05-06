@@ -24,7 +24,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide default cursor on desktop when custom cursor is active */
+/* Headings use Poppins for premium feel */
+h1, h2, h3 {
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+}
+
+/* Hide default cursor on desktop */
 @media (hover: hover) and (pointer: fine) {
   .custom-cursor, .custom-cursor * {
     cursor: none !important;
@@ -67,20 +72,21 @@ body {
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(168, 85, 247, 0.04);
 }
 
-/* Click ripple animation */
+/* Click ripple */
 @keyframes ripple-expand {
   0% { width: 0; height: 0; opacity: 1; }
   100% { width: 120px; height: 120px; margin-left: -60px; margin-top: -60px; opacity: 0; }
-}
-
-/* Smooth reveal for scroll animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Selection color */
 ::selection {
   background: rgba(168, 85, 247, 0.3);
   color: white;
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  .glass-card button, .glass-card a {
+    min-height: 44px;
+  }
 }

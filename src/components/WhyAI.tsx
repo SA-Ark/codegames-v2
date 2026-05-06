@@ -36,7 +36,7 @@ const benefits = [
 
 export function WhyAI() {
   return (
-    <section className="py-28 px-6 relative">
+    <section className="py-20 md:py-28 px-4 md:px-6 relative">
       <div className="max-w-6xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ export function WhyAI() {
           className="text-center mb-20"
         >
           <p className="text-neon-purple text-sm font-semibold tracking-widest uppercase mb-4">The AI Advantage</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Why{' '}
             <span className="bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
               AI-First

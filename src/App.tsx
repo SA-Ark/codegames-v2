@@ -4,6 +4,7 @@ import { HowItWorks } from './components/HowItWorks'
 import { CourseGrid } from './components/CourseGrid'
 import { MinecraftRoblox } from './components/MinecraftRoblox'
 import { WhyAI } from './components/WhyAI'
+import { Testimonials } from './components/Testimonials'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 import { GlobalEffects } from './components/GlobalEffects'
@@ -26,6 +27,8 @@ function App() {
       <CourseGrid />
       <Divider />
       <WhyAI />
+      <Divider />
+      <Testimonials />
       <Divider />
       <FAQ />
       <Footer />

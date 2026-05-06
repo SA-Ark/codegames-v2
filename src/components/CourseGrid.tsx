@@ -182,7 +182,7 @@ export function CourseGrid() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null)
 
   return (
-    <section id="courses" className="py-28 px-6 relative">
+    <section id="courses" className="py-20 md:py-28 px-4 md:px-6 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -191,7 +191,7 @@ export function CourseGrid() {
           className="text-center mb-16"
         >
           <p className="text-neon-pink text-sm font-semibold tracking-widest uppercase mb-4">8 Courses Available</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Choose Your{' '}
             <span className="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
               Adventure
@@ -202,7 +202,7 @@ export function CourseGrid() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
           {courses.map(course => (
             <CourseCard key={course.id} course={course} onClick={() => setSelectedCourse(course)} />
           ))}

@@ -24,7 +24,7 @@ const platforms = [
 
 export function MinecraftRoblox() {
   return (
-    <section className="py-28 px-6 relative overflow-hidden">
+    <section className="py-20 md:py-28 px-4 md:px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export function MinecraftRoblox() {
           className="text-center mb-16"
         >
           <p className="text-neon-green text-sm font-semibold tracking-widest uppercase mb-4">Featured Platforms</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Play Your Favorite Games.{' '}
             <span className="bg-gradient-to-r from-green-400 to-red-400 bg-clip-text text-transparent">
               Build With AI.
