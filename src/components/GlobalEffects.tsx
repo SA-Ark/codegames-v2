@@ -32,26 +32,30 @@ export function GlobalEffects() {
       requestAnimationFrame(animate)
     }
 
-    // Click ripple effect
+    // Click ripple effect — ring pulse around cursor only
     const handleClick = (e: MouseEvent) => {
       const ripple = document.createElement('div')
       ripple.style.cssText = `
         position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
         width: 0; height: 0; border-radius: 50%; pointer-events: none; z-index: 9998;
-        border: 1px solid rgba(168, 85, 247, 0.4);
+        border: 1.5px solid rgba(168, 85, 247, 0.5);
         transform: translate(-50%, -50%);
-        animation: ripple-expand 0.6s ease-out forwards;
+        animation: ripple-expand 0.5s ease-out forwards;
       `
       container.appendChild(ripple)
 
-      // Vibrate on supported devices
-      if (navigator.vibrate) navigator.vibrate(10)
+      // Brief ring scale pulse on the cursor ring
+      if (ring) {
+        ring.style.transform = `translate(${cx}px, ${cy}px) scale(1.4)`
+        ring.style.borderColor = 'rgba(168, 85, 247, 0.5)'
+        setTimeout(() => {
+          ring.style.transform = `translate(${cx}px, ${cy}px) scale(1)`
+          ring.style.borderColor = 'rgba(255, 255, 255, 0.12)'
+        }, 200)
+      }
 
-      // Subtle screen shake
-      document.body.style.transform = 'translate(0.5px, 0.5px)'
-      setTimeout(() => { document.body.style.transform = 'translate(-0.5px, -0.5px)' }, 30)
-      setTimeout(() => { document.body.style.transform = 'translate(0.5px, -0.5px)' }, 60)
-      setTimeout(() => { document.body.style.transform = '' }, 90)
+      // Haptic on mobile only
+      if (navigator.vibrate) navigator.vibrate(8)
 
       setTimeout(() => ripple.remove(), 700)
     }
