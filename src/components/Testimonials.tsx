@@ -40,7 +40,7 @@ export function Testimonials() {
           <p className="text-neon-pink text-sm font-semibold tracking-widest uppercase mb-4">What Parents Say</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Real Parents.{' '}
-            <span className="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent">
               Real Results.
             </span>
           </h2>
@@ -67,7 +67,7 @@ export function Testimonials() {
 
               <div className="flex items-center gap-3 pt-4 border-t border-white/[0.04]">
                 {/* Avatar placeholder */}
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-purple/30 to-neon-cyan/30 flex items-center justify-center text-sm font-bold text-white/70">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-orange/30 to-neon-pink/30 flex items-center justify-center text-sm font-bold text-white/70">
                   {t.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export function Testimonials() {
                   <p className="text-xs text-gray-500">{t.detail}</p>
                 </div>
                 <div className="ml-auto">
-                  <span className="text-[10px] px-2 py-1 rounded-full bg-neon-purple/10 text-neon-purple font-medium">
+                  <span className="text-[10px] px-2 py-1 rounded-full bg-neon-orange/10 text-neon-orange font-medium">
                     {t.course}
                   </span>
                 </div>

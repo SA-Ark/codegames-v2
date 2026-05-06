@@ -4,7 +4,6 @@ import { HowItWorks } from './components/HowItWorks'
 import { CourseGrid } from './components/CourseGrid'
 import { MinecraftRoblox } from './components/MinecraftRoblox'
 import { WhyAI } from './components/WhyAI'
-import { StudentGallery } from './components/StudentGallery'
 import { Instructors } from './components/Instructors'
 import { Testimonials } from './components/Testimonials'
 import { FAQ } from './components/FAQ'
@@ -29,8 +28,6 @@ function App() {
       <MinecraftRoblox />
       <Divider />
       <CourseGrid />
-      <Divider />
-      <StudentGallery />
       <Divider />
       <WhyAI />
       <Divider />

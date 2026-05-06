@@ -31,7 +31,7 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 text-base font-bold">
           <span className="text-lg">🎮</span>
-          <span className="bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent font-extrabold tracking-tight">
+          <span className="bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent font-extrabold tracking-tight">
             AI Games Academy
           </span>
         </a>

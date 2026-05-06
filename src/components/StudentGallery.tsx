@@ -22,7 +22,7 @@ export function StudentGallery() {
           <p className="text-neon-green text-sm font-semibold tracking-widest uppercase mb-4">Student Showcase</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Built By{' '}
-            <span className="bg-gradient-to-r from-neon-green to-neon-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-green to-neon-pink bg-clip-text text-transparent">
               Kids Like Yours
             </span>
           </h2>
@@ -53,7 +53,7 @@ export function StudentGallery() {
                 <h3 className="font-bold text-sm mb-1">{p.title}</h3>
                 <p className="text-gray-400 text-xs leading-relaxed mb-3 font-light">{p.description}</p>
                 <div className="flex items-center gap-2 pt-3 border-t border-white/[0.04]">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neon-purple/30 to-neon-cyan/30 flex items-center justify-center text-[9px] font-bold text-white/70">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neon-orange/30 to-neon-pink/30 flex items-center justify-center text-[9px] font-bold text-white/70">
                     {p.student.split(',')[0][0]}
                   </div>
                   <span className="text-[11px] text-gray-500">Built by <span className="text-gray-300">{p.student}</span></span>

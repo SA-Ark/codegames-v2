@@ -111,8 +111,8 @@ export function AuroraBackground() {
       const spotX = mx * width
       const spotY = (mouseRef.current.y) * height
       const spotGrad = ctx.createRadialGradient(spotX, spotY, 0, spotX, spotY, 200)
-      spotGrad.addColorStop(0, 'rgba(168, 85, 247, 0.06)')
-      spotGrad.addColorStop(0.5, 'rgba(6, 182, 212, 0.03)')
+      spotGrad.addColorStop(0, 'rgba(249, 115, 22, 0.06)')
+      spotGrad.addColorStop(0.5, 'rgba(236, 72, 153, 0.03)')
       spotGrad.addColorStop(1, 'rgba(0,0,0,0)')
       ctx.fillStyle = spotGrad
       ctx.fillRect(0, 0, width, height)

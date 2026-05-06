@@ -57,9 +57,10 @@ function GridBackground() {
         const size = 1 + proximity * 2.5
 
         // Color shifts — purple near cursor, cyan in waves
-        const r = 168 * proximity + 40 * (1 - proximity)
-        const g = 85 * proximity + 40 * (1 - proximity) + 100 * wave * proximity
-        const b = 247 * proximity + 60 * (1 - proximity)
+        // Orange/pink color near cursor, warm amber in waves
+        const r = 249 * proximity + 50 * (1 - proximity)
+        const g = 115 * proximity + 30 * (1 - proximity) + 60 * wave * proximity
+        const b = 22 * proximity + 20 * (1 - proximity) + 130 * wave * proximity
 
         ctx.beginPath()
         ctx.arc(dot.x, dot.y, size, 0, Math.PI * 2)
@@ -76,7 +77,7 @@ function GridBackground() {
               ctx.beginPath()
               ctx.moveTo(dot.x, dot.y)
               ctx.lineTo(other.x, other.y)
-              ctx.strokeStyle = `rgba(168,85,247,${proximity * 0.08})`
+              ctx.strokeStyle = `rgba(249,115,22,${proximity * 0.08})`
               ctx.lineWidth = 0.5
               ctx.stroke()
             }
@@ -116,7 +117,7 @@ function CursorGlow() {
       style={{
         x: springX, y: springY,
         width: 500, height: 500, marginLeft: -250, marginTop: -250,
-        background: 'radial-gradient(circle, rgba(168,85,247,0.06) 0%, rgba(6,182,212,0.03) 30%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(249,115,22,0.06) 0%, rgba(236,72,153,0.03) 30%, transparent 70%)',
         borderRadius: '50%',
       }}
     />
@@ -130,20 +131,20 @@ export function Hero() {
       <CursorGlow />
 
       {/* Gradient beams */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-[40vh] bg-gradient-to-b from-neon-purple/40 via-neon-purple/10 to-transparent" />
-      <div className="absolute top-[10vh] left-[30%] w-[1px] h-[25vh] bg-gradient-to-b from-neon-cyan/20 via-neon-cyan/5 to-transparent rotate-[15deg]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-[40vh] bg-gradient-to-b from-neon-orange/40 via-neon-orange/10 to-transparent" />
+      <div className="absolute top-[10vh] left-[30%] w-[1px] h-[25vh] bg-gradient-to-b from-neon-pink/20 via-neon-pink/5 to-transparent rotate-[15deg]" />
       <div className="absolute top-[10vh] right-[30%] w-[1px] h-[25vh] bg-gradient-to-b from-neon-pink/20 via-neon-pink/5 to-transparent -rotate-[15deg]" />
 
       {/* Soft ambient orbs */}
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full opacity-[0.07]"
-        style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.6), transparent 70%)', top: '10%', left: '20%' }}
+        style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.6), transparent 70%)', top: '10%', left: '20%' }}
         animate={{ x: [0, 30, -20, 0], y: [0, -20, 10, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         className="absolute w-[500px] h-[500px] rounded-full opacity-[0.05]"
-        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.6), transparent 70%)', bottom: '10%', right: '15%' }}
+        style={{ background: 'radial-gradient(circle, rgba(236,72,153,0.6), transparent 70%)', bottom: '10%', right: '15%' }}
         animate={{ x: [0, -25, 15, 0], y: [0, 15, -25, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
@@ -169,7 +170,7 @@ export function Hero() {
         >
           Build Epic Games
           <br />
-          <span className="bg-gradient-to-r from-neon-purple via-neon-pink to-neon-cyan bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
+          <span className="bg-gradient-to-r from-neon-orange via-neon-pink to-neon-pink bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
             With AI
           </span>
         </motion.h1>
@@ -197,9 +198,9 @@ export function Hero() {
             className="group relative px-8 py-3.5 rounded-full text-white font-semibold text-base overflow-hidden transition-all hover:scale-[1.03] active:scale-[0.98]"
           >
             {/* Animated gradient border */}
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-purple via-neon-pink to-neon-cyan animate-gradient bg-[length:200%_200%]" />
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-orange via-neon-pink to-neon-pink animate-gradient bg-[length:200%_200%]" />
             <span className="absolute inset-[1px] rounded-full bg-dark-900" />
-            <span className="absolute inset-[1px] rounded-full bg-gradient-to-r from-neon-purple/20 to-neon-pink/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="absolute inset-[1px] rounded-full bg-gradient-to-r from-neon-orange/20 to-neon-pink/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="relative z-10">Explore Courses →</span>
           </a>
           <a

@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 text-xl font-bold mb-5">
               <span className="text-2xl">🎮</span>
-              <span className="bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent font-extrabold tracking-tight">
+              <span className="bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent font-extrabold tracking-tight">
                 AI Games Academy
               </span>
             </div>

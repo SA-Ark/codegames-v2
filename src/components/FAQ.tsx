@@ -28,7 +28,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
         <span className="font-semibold text-sm md:text-base">{faq.q}</span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
-          className="text-neon-purple text-xl flex-shrink-0 mt-0.5 group-hover:text-neon-cyan transition-colors"
+          className="text-neon-orange text-xl flex-shrink-0 mt-0.5 group-hover:text-neon-pink transition-colors"
         >
           +
         </motion.span>
@@ -65,7 +65,7 @@ export function FAQ() {
           <p className="text-neon-green text-sm font-semibold tracking-widest uppercase mb-4">For Parents</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Got{' '}
-            <span className="bg-gradient-to-r from-neon-cyan to-neon-green bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-pink to-neon-green bg-clip-text text-transparent">
               Questions?
             </span>
           </h2>

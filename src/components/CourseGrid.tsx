@@ -9,9 +9,9 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
   const glowColors: Record<string, string> = {
     'from-green-500 to-emerald-700': 'rgba(34,197,94,0.12)',
     'from-red-500 to-orange-600': 'rgba(239,68,68,0.12)',
-    'from-purple-500 to-violet-700': 'rgba(168,85,247,0.12)',
+    'from-purple-500 to-violet-700': 'rgba(249,115,22,0.12)',
     'from-pink-500 to-rose-600': 'rgba(236,72,153,0.12)',
-    'from-cyan-500 to-blue-600': 'rgba(6,182,212,0.12)',
+    'from-cyan-500 to-blue-600': 'rgba(236,72,153,0.12)',
     'from-amber-500 to-yellow-600': 'rgba(245,158,11,0.12)',
     'from-indigo-500 to-purple-600': 'rgba(99,102,241,0.12)',
     'from-teal-500 to-green-600': 'rgba(20,184,166,0.12)',
@@ -20,7 +20,7 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
   return (
     <GlowCard
       onClick={onClick}
-      glowColor={glowColors[course.gradient] || 'rgba(168,85,247,0.12)'}
+      glowColor={glowColors[course.gradient] || 'rgba(249,115,22,0.12)'}
       className="rounded-2xl"
     >
       <div className="glass-card rounded-2xl overflow-hidden h-full flex flex-col">
@@ -41,7 +41,7 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
 
         <div className="p-6 flex-1 flex flex-col">
           <h3 className="text-lg font-bold mb-1">{course.title}</h3>
-          <p className="text-xs text-neon-cyan font-medium mb-3">{course.subtitle}</p>
+          <p className="text-xs text-neon-pink font-medium mb-3">{course.subtitle}</p>
           <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">{course.description}</p>
 
           {/* Tags */}
@@ -67,7 +67,7 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span>Ages {course.ageRange}</span>
             </div>
-            <span className="text-lg font-bold text-neon-cyan">
+            <span className="text-lg font-bold text-neon-pink">
               {course.price}
             </span>
           </div>
@@ -132,7 +132,7 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
               {curriculum.sessions.map(session => (
                 <details key={session.sessionNumber} className="group">
                   <summary className="flex items-center gap-3 cursor-pointer p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.04] transition border border-white/[0.03]">
-                    <span className="w-8 h-8 rounded-lg bg-gradient-to-r from-neon-purple/20 to-neon-cyan/20 flex items-center justify-center text-sm font-bold text-neon-purple flex-shrink-0">
+                    <span className="w-8 h-8 rounded-lg bg-gradient-to-r from-neon-orange/20 to-neon-pink/20 flex items-center justify-center text-sm font-bold text-neon-orange flex-shrink-0">
                       {session.sessionNumber}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -148,13 +148,13 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
                         <div className="space-y-1">
                           {lesson.objectives.map((obj, oi) => (
                             <p key={oi} className="text-xs text-gray-400 flex items-start gap-2">
-                              <span className="text-neon-cyan">→</span> {obj}
+                              <span className="text-neon-pink">→</span> {obj}
                             </p>
                           ))}
                         </div>
                         <div className="flex flex-wrap gap-1 mt-2">
                           {lesson.aiTools.map(tool => (
-                            <span key={tool} className="px-2 py-0.5 rounded bg-neon-purple/10 text-neon-purple text-[10px] font-medium">
+                            <span key={tool} className="px-2 py-0.5 rounded bg-neon-orange/10 text-neon-orange text-[10px] font-medium">
                               {tool}
                             </span>
                           ))}
@@ -173,10 +173,10 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
 
         {/* CTA */}
         <div className="px-8 py-5 border-t border-white/[0.04] flex items-center justify-between bg-dark-900/50">
-          <span className="text-2xl font-extrabold bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+          <span className="text-2xl font-extrabold bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent">
             {course.price}
           </span>
-          <a href={course.checkoutUrl} className="px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white font-semibold hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:scale-105 transition-all">
+          <a href={course.checkoutUrl} className="px-6 py-3 rounded-full bg-gradient-to-r from-neon-orange to-neon-pink text-white font-semibold hover:shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:scale-105 transition-all">
             Enroll Now →
           </a>
         </div>
@@ -200,7 +200,7 @@ export function CourseGrid() {
           <p className="text-neon-pink text-sm font-semibold tracking-widest uppercase mb-4">8 Courses Available</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Choose Your{' '}
-            <span className="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent">
               Adventure
             </span>
           </h2>

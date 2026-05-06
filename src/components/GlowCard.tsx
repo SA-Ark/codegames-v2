@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 export function GlowCard({
   children,
   className = '',
-  glowColor = 'rgba(168, 85, 247, 0.15)',
+  glowColor = 'rgba(249, 115, 22, 0.15)',
   onClick,
 }: {
   children: React.ReactNode

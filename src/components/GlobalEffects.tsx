@@ -38,7 +38,7 @@ export function GlobalEffects() {
       ripple.style.cssText = `
         position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
         width: 0; height: 0; border-radius: 50%; pointer-events: none; z-index: 9998;
-        border: 1.5px solid rgba(168, 85, 247, 0.5);
+        border: 1.5px solid rgba(249, 115, 22, 0.5);
         transform: translate(-50%, -50%);
         animation: ripple-expand 0.5s ease-out forwards;
       `
@@ -47,7 +47,7 @@ export function GlobalEffects() {
       // Brief ring scale pulse on the cursor ring
       if (ring) {
         ring.style.transform = `translate(${cx}px, ${cy}px) scale(1.4)`
-        ring.style.borderColor = 'rgba(168, 85, 247, 0.5)'
+        ring.style.borderColor = 'rgba(249, 115, 22, 0.5)'
         setTimeout(() => {
           ring.style.transform = `translate(${cx}px, ${cy}px) scale(1)`
           ring.style.borderColor = 'rgba(255, 255, 255, 0.12)'
@@ -66,7 +66,7 @@ export function GlobalEffects() {
       ring.style.height = '52px'
       ring.style.marginLeft = '-26px'
       ring.style.marginTop = '-26px'
-      ring.style.borderColor = 'rgba(168, 85, 247, 0.4)'
+      ring.style.borderColor = 'rgba(249, 115, 22, 0.4)'
       cursor.style.opacity = '0.5'
     }
     const handleLeave = () => {
@@ -114,7 +114,7 @@ export function GlobalEffects() {
         style={{ transition: 'opacity 0.2s' }}
       >
         <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1L1 19L6 14L11 22L14 20.5L9 12.5L16 11L1 1Z" fill="rgba(168,85,247,0.9)" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
+          <path d="M1 1L1 19L6 14L11 22L14 20.5L9 12.5L16 11L1 1Z" fill="rgba(249,115,22,0.9)" stroke="white" strokeWidth="1.5" strokeLinejoin="round"/>
         </svg>
       </div>
       {/* Cursor ring */}

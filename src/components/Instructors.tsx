@@ -40,10 +40,10 @@ export function Instructors() {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <p className="text-neon-cyan text-sm font-semibold tracking-widest uppercase mb-4">Expert Guidance</p>
+          <p className="text-neon-pink text-sm font-semibold tracking-widest uppercase mb-4">Expert Guidance</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Meet Your{' '}
-            <span className="bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-pink to-neon-orange bg-clip-text text-transparent">
               Instructors
             </span>
           </h2>
@@ -68,7 +68,7 @@ export function Instructors() {
               </div>
 
               <h3 className="text-lg font-bold mb-1">{inst.name}</h3>
-              <p className="text-neon-cyan text-xs font-medium mb-3">{inst.role}</p>
+              <p className="text-neon-pink text-xs font-medium mb-3">{inst.role}</p>
               <p className="text-gray-400 text-sm leading-relaxed mb-4 font-light">{inst.bio}</p>
 
               <div className="text-[11px] text-gray-500 mb-3">{inst.stats}</div>

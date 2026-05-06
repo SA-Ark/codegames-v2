@@ -24,7 +24,7 @@ export function StickyMobileCTA() {
         </div>
         <a
           href="#courses"
-          className="flex-shrink-0 px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white text-sm font-semibold whitespace-nowrap"
+          className="flex-shrink-0 px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-orange to-neon-pink text-white text-sm font-semibold whitespace-nowrap"
         >
           Enroll Now
         </a>

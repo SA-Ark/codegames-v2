@@ -5,12 +5,12 @@ const benefits = [
   {
     icon: '🧠', title: 'Think, Don\'t Memorize',
     description: 'We teach problem decomposition and critical thinking — skills that work with ANY technology, forever.',
-    glowColor: 'rgba(168,85,247,0.12)',
+    glowColor: 'rgba(249,115,22,0.12)',
   },
   {
     icon: '🚀', title: '10x Faster Building',
     description: 'Kids build in weeks what used to take months. AI handles the tedious parts so they focus on creativity.',
-    glowColor: 'rgba(6,182,212,0.12)',
+    glowColor: 'rgba(236,72,153,0.12)',
   },
   {
     icon: '🎯', title: 'Real Projects, Real Skills',
@@ -44,10 +44,10 @@ export function WhyAI() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-neon-purple text-sm font-semibold tracking-widest uppercase mb-4">The AI Advantage</p>
+          <p className="text-neon-orange text-sm font-semibold tracking-widest uppercase mb-4">The AI Advantage</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             Why{' '}
-            <span className="bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-orange to-neon-pink bg-clip-text text-transparent">
               AI-First
             </span>{' '}
             Learning?

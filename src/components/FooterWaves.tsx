@@ -25,8 +25,8 @@ export function FooterWaves() {
     window.addEventListener('resize', resize)
 
     const waves = [
-      { amplitude: 20, wavelength: 300, speed: 0.015, color: 'rgba(168, 85, 247, 0.06)', yOffset: 0.3 },
-      { amplitude: 15, wavelength: 200, speed: 0.02, color: 'rgba(6, 182, 212, 0.04)', yOffset: 0.5 },
+      { amplitude: 20, wavelength: 300, speed: 0.015, color: 'rgba(249, 115, 22, 0.06)', yOffset: 0.3 },
+      { amplitude: 15, wavelength: 200, speed: 0.02, color: 'rgba(236, 72, 153, 0.04)', yOffset: 0.5 },
       { amplitude: 25, wavelength: 400, speed: 0.01, color: 'rgba(236, 72, 153, 0.03)', yOffset: 0.7 },
     ]
 

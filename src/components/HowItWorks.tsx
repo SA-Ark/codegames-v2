@@ -7,16 +7,16 @@ const steps = [
     icon: '🎯',
     title: 'Pick Your Project',
     description: 'Choose from Minecraft mods, Roblox games, chatbots, web apps, and more. Start with what excites YOU.',
-    color: 'from-neon-purple to-violet-600',
-    glowColor: 'rgba(168, 85, 247, 0.15)',
+    color: 'from-neon-orange to-violet-600',
+    glowColor: 'rgba(249, 115, 22, 0.15)',
   },
   {
     number: '02',
     icon: '🤖',
     title: 'AI Helps You Build',
     description: 'Learn to direct AI like a boss. It writes code, generates art, and creates music — you make the creative decisions.',
-    color: 'from-neon-cyan to-blue-600',
-    glowColor: 'rgba(6, 182, 212, 0.15)',
+    color: 'from-neon-pink to-blue-600',
+    glowColor: 'rgba(236, 72, 153, 0.15)',
   },
   {
     number: '03',
@@ -38,10 +38,10 @@ export function HowItWorks() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-neon-cyan text-sm font-semibold tracking-widest uppercase mb-4">Simple Process</p>
+          <p className="text-neon-pink text-sm font-semibold tracking-widest uppercase mb-4">Simple Process</p>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
             How It{' '}
-            <span className="bg-gradient-to-r from-neon-cyan to-neon-green bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-pink to-neon-green bg-clip-text text-transparent">
               Works
             </span>
           </h2>
