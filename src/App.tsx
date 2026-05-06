@@ -1,4 +1,3 @@
-import { AuroraBackground } from './components/AuroraBackground'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
@@ -8,20 +7,26 @@ import { WhyAI } from './components/WhyAI'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 
+function Divider() {
+  return <div className="section-divider" />
+}
+
 function App() {
   return (
-    <div className="min-h-screen bg-dark-900 text-white relative">
-      <AuroraBackground />
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <HowItWorks />
-        <MinecraftRoblox />
-        <CourseGrid />
-        <WhyAI />
-        <FAQ />
-        <Footer />
-      </div>
+    <div className="min-h-screen bg-dark-900 text-white">
+      <Navbar />
+      <Hero />
+      <Divider />
+      <HowItWorks />
+      <Divider />
+      <MinecraftRoblox />
+      <Divider />
+      <CourseGrid />
+      <Divider />
+      <WhyAI />
+      <Divider />
+      <FAQ />
+      <Footer />
     </div>
   )
 }

@@ -53,7 +53,7 @@ export function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, i) => (
             <GlowCard key={step.number} glowColor={step.glowColor} className="rounded-2xl">
-              <div className="bg-dark-800/80 backdrop-blur-sm rounded-2xl p-8 border border-white/[0.04] h-full relative">
+              <div className="glass-card rounded-2xl p-8 h-full relative">
                 {/* Number badge */}
                 <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${step.color} text-white font-bold text-lg mb-6 shadow-lg`}>
                   {step.number}

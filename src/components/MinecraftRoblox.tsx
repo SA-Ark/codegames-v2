@@ -47,7 +47,7 @@ export function MinecraftRoblox() {
         <div className="grid md:grid-cols-2 gap-8">
           {platforms.map((p, i) => (
             <GlowCard key={p.name} glowColor={p.glowColor} className="rounded-2xl">
-              <div className="bg-dark-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/[0.04] h-full">
+              <div className="glass-card rounded-2xl overflow-hidden h-full">
                 <div className={`h-44 bg-gradient-to-br ${p.gradient} flex items-center justify-center relative overflow-hidden`}>
                   <motion.span
                     className="text-8xl drop-shadow-2xl"

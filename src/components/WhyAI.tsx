@@ -60,7 +60,7 @@ export function WhyAI() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((b) => (
             <GlowCard key={b.title} glowColor={b.glowColor} className="rounded-2xl">
-              <div className="bg-dark-800/80 backdrop-blur-sm rounded-2xl p-7 border border-white/[0.04] h-full">
+              <div className="glass-card rounded-2xl p-7 h-full">
                 <div className="text-4xl mb-4 inline-block">{b.icon}</div>
                 <h3 className="text-lg font-bold mb-2">{b.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{b.description}</p>

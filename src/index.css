@@ -5,10 +5,10 @@
   --color-neon-cyan: #06b6d4;
   --color-neon-green: #22c55e;
   --color-neon-pink: #ec4899;
-  --color-dark-900: #0a0a0f;
-  --color-dark-800: #12121a;
-  --color-dark-700: #1a1a2e;
-  --color-dark-600: #252540;
+  --color-dark-900: #08080c;
+  --color-dark-800: #0f0f15;
+  --color-dark-700: #16161f;
+  --color-dark-600: #1e1e2a;
 }
 
 html {
@@ -20,28 +20,14 @@ body {
   background: var(--color-dark-900);
   color: white;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--color-dark-900); }
-::-webkit-scrollbar-thumb { background: var(--color-neon-purple); border-radius: 4px; }
-
-.glow-purple { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3); }
-.glow-cyan { text-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.3); }
-
-.card-glow {
-  box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.1), 0 0 20px rgba(168, 85, 247, 0.05);
-  transition: box-shadow 0.3s;
-}
-.card-glow:hover {
-  box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.3), 0 0 30px rgba(168, 85, 247, 0.15);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.animate-float { animation: float 3s ease-in-out infinite; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(168, 85, 247, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(168, 85, 247, 0.5); }
 
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
@@ -49,6 +35,23 @@ body {
 }
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 6s ease infinite;
 }
-/* deployed 2026-05-05T19:39:00-07:00 */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.15), rgba(6, 182, 212, 0.15), transparent);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.glass-card {
+  background: rgba(15, 15, 21, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.06);
+}

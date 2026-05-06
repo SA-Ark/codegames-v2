@@ -23,7 +23,7 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
       glowColor={glowColors[course.gradient] || 'rgba(168,85,247,0.12)'}
       className="rounded-2xl"
     >
-      <div className="bg-dark-800/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/[0.04] h-full flex flex-col">
+      <div className="glass-card rounded-2xl overflow-hidden h-full flex flex-col">
         {/* Gradient header */}
         <div className={`h-36 bg-gradient-to-br ${course.gradient} flex items-center justify-center relative overflow-hidden`}>
           {/* Animated shine overlay */}

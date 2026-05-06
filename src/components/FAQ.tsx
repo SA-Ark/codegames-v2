@@ -23,7 +23,7 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left p-5 flex items-start justify-between gap-4 bg-dark-800/60 backdrop-blur-sm rounded-xl border border-white/[0.04] hover:border-white/[0.08] transition-all group"
+        className="w-full text-left p-5 flex items-start justify-between gap-4 glass-card rounded-xl group"
       >
         <span className="font-semibold text-sm md:text-base">{faq.q}</span>
         <motion.span
