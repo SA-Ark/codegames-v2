@@ -12,6 +12,7 @@ import { Footer } from './components/Footer'
 import { GlobalEffects } from './components/GlobalEffects'
 import { StickyMobileCTA } from './components/StickyMobileCTA'
 import { SubscribePage } from './components/SubscribePage'
+import { ParentGuide } from './components/ParentGuide'
 
 function Divider() {
   return <div className="section-divider" />
@@ -26,10 +27,11 @@ function App() {
     // Handle clicks on internal links
     const clickHandler = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest('a')
-      if (target && target.getAttribute('href') === '/subscribe') {
+      if (target && (target.getAttribute('href') === '/subscribe' || target.getAttribute('href') === '/parent-guide')) {
         e.preventDefault()
-        window.history.pushState({}, '', '/subscribe')
-        setPage('/subscribe')
+        const href = target.getAttribute('href')!
+        window.history.pushState({}, '', href)
+        setPage(href)
         window.scrollTo(0, 0)
       }
     }
@@ -39,6 +41,15 @@ function App() {
       document.removeEventListener('click', clickHandler)
     }
   }, [])
+
+  if (page === '/parent-guide') {
+    return (
+      <div className="custom-cursor">
+        <GlobalEffects />
+        <ParentGuide />
+      </div>
+    )
+  }
 
   if (page === '/subscribe') {
     return (
