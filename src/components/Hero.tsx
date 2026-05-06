@@ -166,7 +166,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-[clamp(2.5rem,7vw,6rem)] font-extrabold leading-[1.0] mb-7 tracking-[-0.03em]"
+          className="text-[clamp(3rem,9vw,7.5rem)] font-extrabold leading-[0.95] mb-7 tracking-[-0.04em]"
         >
           Build Epic Games
           <br />
