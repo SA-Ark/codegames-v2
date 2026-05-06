@@ -53,14 +53,21 @@ function CourseCard({ course, onClick }: { course: Course; onClick: () => void }
             ))}
           </div>
 
-          {/* Footer */}
+          {/* Spots + Footer */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+            <span className="text-[11px] text-neon-green font-medium">
+              {3 + (course.id.charCodeAt(0) % 5)} spots left — Summer cohort
+            </span>
+          </div>
+
           <div className="flex items-center justify-between pt-4 border-t border-white/[0.04]">
             <div className="flex items-center gap-2 text-xs text-gray-500">
               <span>{course.sessions} sessions</span>
               <span className="w-1 h-1 rounded-full bg-gray-700" />
               <span>Ages {course.ageRange}</span>
             </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+            <span className="text-lg font-bold text-neon-cyan">
               {course.price}
             </span>
           </div>

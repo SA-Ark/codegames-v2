@@ -4,10 +4,13 @@ import { HowItWorks } from './components/HowItWorks'
 import { CourseGrid } from './components/CourseGrid'
 import { MinecraftRoblox } from './components/MinecraftRoblox'
 import { WhyAI } from './components/WhyAI'
+import { StudentGallery } from './components/StudentGallery'
+import { Instructors } from './components/Instructors'
 import { Testimonials } from './components/Testimonials'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 import { GlobalEffects } from './components/GlobalEffects'
+import { StickyMobileCTA } from './components/StickyMobileCTA'
 
 function Divider() {
   return <div className="section-divider" />
@@ -17,6 +20,7 @@ function App() {
   return (
     <div className="min-h-screen bg-dark-900 text-white custom-cursor">
       <GlobalEffects />
+      <StickyMobileCTA />
       <Navbar />
       <Hero />
       <Divider />
@@ -26,7 +30,11 @@ function App() {
       <Divider />
       <CourseGrid />
       <Divider />
+      <StudentGallery />
+      <Divider />
       <WhyAI />
+      <Divider />
+      <Instructors />
       <Divider />
       <Testimonials />
       <Divider />

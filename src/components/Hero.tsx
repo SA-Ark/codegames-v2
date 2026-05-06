@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import { StatsBar } from './StatsBar'
 
 function GridBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -209,25 +210,14 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats */}
+        {/* Stats — animated counters */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-24 flex flex-wrap justify-center gap-16"
+          className="mt-20 md:mt-24"
         >
-          {[
-            { value: '8', label: 'AI Courses' },
-            { value: '500+', label: 'Students' },
-            { value: '95%', label: 'Love It' },
-          ].map(stat => (
-            <div key={stat.label} className="text-center">
-              <div className="text-4xl font-extrabold tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-                {stat.value}
-              </div>
-              <div className="text-[13px] text-gray-600 mt-1.5 tracking-wide">{stat.label}</div>
-            </div>
-          ))}
+          <StatsBar />
         </motion.div>
       </div>
 
