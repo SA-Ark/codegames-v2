@@ -169,9 +169,9 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
           <span className="text-2xl font-extrabold bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
             {course.price}
           </span>
-          <button className="px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white font-semibold hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:scale-105 transition-all">
+          <a href={course.checkoutUrl} className="px-6 py-3 rounded-full bg-gradient-to-r from-neon-purple to-neon-pink text-white font-semibold hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:scale-105 transition-all">
             Enroll Now →
-          </button>
+          </a>
         </div>
       </motion.div>
     </motion.div>

@@ -12,6 +12,7 @@ export interface Course {
   tags: string[];
   featured?: boolean;
   highlights: string[];
+  checkoutUrl: string;
 }
 
 export const courses: Course[] = [
@@ -33,7 +34,8 @@ export const courses: Course[] = [
       'Create custom mods without coding',
       'Automate redstone with AI logic',
       'Build & share your own world'
-    ]
+    ],
+    checkoutUrl: '#enroll-minecraft-ai',
   },
   {
     id: 'roblox-ai',
@@ -53,7 +55,8 @@ export const courses: Course[] = [
       'Use AI to write Lua scripts for you',
       'Design levels, NPCs, and game mechanics',
       'Publish to Roblox for friends to play'
-    ]
+    ],
+    checkoutUrl: '#enroll-roblox-ai',
   },
   {
     id: 'ai-chatbot',
@@ -72,7 +75,8 @@ export const courses: Course[] = [
       'Master prompt engineering techniques',
       'Connect to real AI APIs',
       'Deploy your bot for others to use'
-    ]
+    ],
+    checkoutUrl: '#enroll-ai-chatbot',
   },
   {
     id: 'ai-art',
@@ -91,7 +95,8 @@ export const courses: Course[] = [
       'Create consistent art styles with AI',
       'Build a complete game asset library',
       'Design UI/UX for games and apps'
-    ]
+    ],
+    checkoutUrl: '#enroll-ai-art',
   },
   {
     id: 'ai-webapp',
@@ -110,7 +115,8 @@ export const courses: Course[] = [
       'AI writes code while you direct',
       'Learn deployment & hosting',
       'Portfolio project to show off'
-    ]
+    ],
+    checkoutUrl: '#enroll-ai-webapp',
   },
   {
     id: 'ai-music',
@@ -129,7 +135,8 @@ export const courses: Course[] = [
       'Create custom sound effects',
       'Build ambient soundscapes',
       'Mix and master your tracks'
-    ]
+    ],
+    checkoutUrl: '#enroll-ai-music',
   },
   {
     id: 'ai-gamemaker',
@@ -148,7 +155,8 @@ export const courses: Course[] = [
       'AI generates code from your ideas',
       'Learn game design & mechanics',
       'Share games with a URL'
-    ]
+    ],
+    checkoutUrl: '#enroll-ai-gamemaker',
   },
   {
     id: 'ai-video',
@@ -167,6 +175,7 @@ export const courses: Course[] = [
       'AI-powered editing & effects',
       'Design click-worthy thumbnails',
       'Build your content brand'
-    ]
+    ],
+    checkoutUrl: '#enroll-ai-video',
   }
 ];
