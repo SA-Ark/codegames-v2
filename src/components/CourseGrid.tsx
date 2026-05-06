@@ -11,122 +11,156 @@ import { GlowCard } from './GlowCard'
 function CourseScene({ courseId, gradient }: { courseId: string; gradient: string }) {
   const scenes: Record<string, React.ReactNode> = {
     'minecraft-ai': (
-      // Minecraft: floating blocks in isometric grid
+      // Minecraft: bold 3D-ish blocks in isometric layout
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-full h-full">
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-sm border border-white/20"
-              style={{
-                width: 16 + (i % 3) * 8,
-                height: 16 + (i % 3) * 8,
-                left: `${15 + (i % 4) * 20}%`,
-                top: `${10 + Math.floor(i / 4) * 28}%`,
-                background: `rgba(255,255,255,${0.05 + (i % 3) * 0.05})`,
-                transform: 'rotate(45deg)',
-              }}
-              animate={{ y: [0, -6, 0], rotate: [45, 45, 45] }}
-              transition={{ duration: 2 + i * 0.3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.2 }}
+        {/* Ground row */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div key={`g${i}`} className="absolute" style={{ left: `${8 + i * 16}%`, bottom: '15%' }}
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.15 }}
+          >
+            <div className="w-10 h-10 bg-green-800/60 border-2 border-green-500/40 rounded-sm shadow-lg shadow-green-900/30" />
+            <div className="w-10 h-6 bg-amber-900/50 border-x-2 border-b-2 border-amber-700/30 -mt-px rounded-b-sm" />
+          </motion.div>
+        ))}
+        {/* Floating blocks */}
+        {[[25, 35, 'emerald'], [55, 25, 'sky'], [40, 50, 'amber']].map(([x, y, color], i) => (
+          <motion.div key={`f${i}`} className="absolute"
+            style={{ left: `${x}%`, top: `${y}%` }}
+            animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
+          >
+            <div className={`w-8 h-8 bg-${color}-600/50 border-2 border-${color}-400/50 rounded-sm shadow-md`}
+              style={{ background: i === 0 ? 'rgba(16,185,129,0.5)' : i === 1 ? 'rgba(14,165,233,0.5)' : 'rgba(217,119,6,0.5)',
+                       borderColor: i === 0 ? 'rgba(52,211,153,0.5)' : i === 1 ? 'rgba(56,189,248,0.5)' : 'rgba(245,158,11,0.5)' }}
             />
-          ))}
-          <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 border border-white/30 rounded"
-            animate={{ rotate: [0, 90, 180, 270, 360] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-          />
-        </div>
+          </motion.div>
+        ))}
+        {/* Pickaxe icon */}
+        <motion.div className="absolute left-1/2 top-[30%] -translate-x-1/2 text-3xl"
+          animate={{ rotate: [-15, 15, -15] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >⛏️</motion.div>
       </div>
     ),
     'roblox-ai': (
-      // Roblox: character silhouettes and game elements
-      <div className="absolute inset-0 flex items-center justify-center">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white/10 border border-white/20"
-            style={{
-              width: 20 + i * 12,
-              height: 20 + i * 12,
-              left: `${20 + i * 14}%`,
-              top: `${50 - i * 5}%`,
-            }}
-            animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
-            transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.4 }}
-          />
+      // Roblox: character + game UI elements
+      <div className="absolute inset-0">
+        {/* Character body */}
+        <motion.div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <div className="w-12 h-12 bg-white/25 rounded-lg border-2 border-white/40 shadow-lg" /> {/* Head */}
+          <div className="w-16 h-14 bg-white/20 rounded-md border-2 border-white/30 -mt-1 mx-auto relative" style={{ marginLeft: -2 }}> {/* Body */}
+            <div className="absolute -left-4 top-1 w-4 h-10 bg-white/15 rounded border border-white/20" /> {/* Left arm */}
+            <div className="absolute -right-4 top-1 w-4 h-10 bg-white/15 rounded border border-white/20" /> {/* Right arm */}
+          </div>
+        </motion.div>
+        {/* Floating stars */}
+        {[[20, 20], [75, 15], [15, 70], [80, 65]].map(([x, y], i) => (
+          <motion.div key={i} className="absolute text-xl"
+            style={{ left: `${x}%`, top: `${y}%` }}
+            animate={{ scale: [0.5, 1, 0.5], opacity: [0.3, 0.7, 0.3], rotate: [0, 180, 360] }}
+            transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.5 }}
+          >✦</motion.div>
         ))}
-        <motion.div className="absolute w-8 h-12 bg-white/15 rounded-t-lg rounded-b-sm left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-white/25"
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
       </div>
     ),
     'ai-chatbot': (
-      // Chatbot: message bubbles floating
-      <div className="absolute inset-0">
+      // Chatbot: conversation bubbles with typing indicators
+      <div className="absolute inset-0 p-4">
         {[
-          { w: 50, h: 16, x: '15%', y: '25%', delay: 0 },
-          { w: 40, h: 16, x: '55%', y: '40%', delay: 0.5 },
-          { w: 60, h: 16, x: '25%', y: '55%', delay: 1 },
-          { w: 35, h: 16, x: '60%', y: '70%', delay: 1.5 },
+          { side: 'left', y: '10%', w: 100, delay: 0, text: 'Hello! 👋' },
+          { side: 'right', y: '30%', w: 80, delay: 0.8, text: 'Hi there!' },
+          { side: 'left', y: '50%', w: 120, delay: 1.6, text: 'How can I help?' },
+          { side: 'right', y: '70%', w: 90, delay: 2.4, text: '' }, // typing indicator
         ].map((b, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-xl bg-white/8 border border-white/15"
-            style={{ width: b.w, height: b.h, left: b.x, top: b.y }}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-            animate={{ opacity: [0, 0.15, 0.15, 0], x: 0 }}
-            transition={{ duration: 3, repeat: Infinity, delay: b.delay }}
+          <motion.div key={i}
+            className={`absolute ${b.side === 'left' ? 'left-4' : 'right-4'} px-3 py-2 rounded-xl text-[10px] text-white/70 font-medium`}
+            style={{ top: b.y, maxWidth: b.w,
+              background: b.side === 'left' ? 'rgba(255,255,255,0.12)' : 'rgba(249,115,22,0.25)',
+              border: `1px solid ${b.side === 'left' ? 'rgba(255,255,255,0.15)' : 'rgba(249,115,22,0.3)'}`,
+            }}
+            initial={{ opacity: 0, x: b.side === 'left' ? -20 : 20, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ delay: b.delay, duration: 0.4 }}
           >
-            <div className="flex gap-1 p-2">
-              {[...Array(2 + (i % 2))].map((_, j) => (
-                <div key={j} className="h-1.5 rounded-full bg-white/20" style={{ width: 8 + j * 6 }} />
-              ))}
-            </div>
+            {b.text || (
+              <div className="flex gap-1 py-0.5">
+                {[0, 1, 2].map(j => (
+                  <motion.div key={j} className="w-1.5 h-1.5 rounded-full bg-white/50"
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ duration: 0.6, repeat: Infinity, delay: j * 0.15 }}
+                  />
+                ))}
+              </div>
+            )}
           </motion.div>
         ))}
+        {/* Bot avatar */}
+        <motion.div className="absolute left-4 bottom-3 text-2xl"
+          animate={{ y: [0, -3, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >🤖</motion.div>
       </div>
     ),
     'ai-art': (
-      // Art: paintbrush strokes / color splashes
+      // Art: colorful paint strokes with brush
       <div className="absolute inset-0">
-        {['rgba(255,100,100,0.15)', 'rgba(100,200,255,0.12)', 'rgba(255,200,50,0.12)', 'rgba(150,100,255,0.15)', 'rgba(100,255,150,0.1)'].map((color, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full blur-sm"
+        {[
+          { color: 'rgba(239,68,68,0.4)', x: 15, y: 20, w: 80, h: 20, rotate: -12, delay: 0 },
+          { color: 'rgba(59,130,246,0.35)', x: 40, y: 35, w: 90, h: 18, rotate: 8, delay: 0.3 },
+          { color: 'rgba(234,179,8,0.4)', x: 20, y: 55, w: 70, h: 22, rotate: -5, delay: 0.6 },
+          { color: 'rgba(168,85,247,0.35)', x: 50, y: 15, w: 60, h: 16, rotate: 15, delay: 0.9 },
+          { color: 'rgba(34,197,94,0.3)', x: 35, y: 70, w: 85, h: 20, rotate: -8, delay: 1.2 },
+        ].map((s, i) => (
+          <motion.div key={i} className="absolute rounded-full"
             style={{
-              width: 30 + i * 15,
-              height: 30 + i * 15,
-              left: `${10 + i * 18}%`,
-              top: `${20 + (i % 3) * 20}%`,
-              background: color,
+              left: `${s.x}%`, top: `${s.y}%`, width: s.w, height: s.h,
+              background: s.color, transform: `rotate(${s.rotate}deg)`,
+              filter: 'blur(2px)',
             }}
-            animate={{ scale: [0.8, 1.2, 0.8], rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.3 }}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: [0, 1, 1], opacity: [0, 0.8, 0.6] }}
+            transition={{ duration: 0.8, delay: s.delay, repeat: Infinity, repeatDelay: 4 }}
           />
         ))}
+        <motion.div className="absolute right-6 top-4 text-2xl"
+          animate={{ rotate: [-20, 20, -20], x: [-5, 5, -5] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >🎨</motion.div>
       </div>
     ),
     'ai-webapp': (
-      // Web app: browser window with code lines
-      <div className="absolute inset-0 flex items-center justify-center p-6">
-        <motion.div
-          className="w-full max-w-[120px] bg-white/5 rounded-lg border border-white/15 overflow-hidden"
-          animate={{ y: [0, -3, 0] }}
+      // Web app: browser window with live code
+      <div className="absolute inset-0 flex items-center justify-center p-3">
+        <motion.div className="w-full max-w-[160px] rounded-lg border border-white/25 overflow-hidden shadow-2xl"
+          style={{ background: 'rgba(0,0,0,0.4)' }}
+          animate={{ y: [0, -4, 0] }}
           transition={{ duration: 3, repeat: Infinity }}
         >
-          <div className="h-4 bg-white/10 flex items-center gap-1 px-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-red-400/50" />
-            <div className="w-1.5 h-1.5 rounded-full bg-yellow-400/50" />
-            <div className="w-1.5 h-1.5 rounded-full bg-green-400/50" />
+          {/* Browser chrome */}
+          <div className="h-5 bg-white/10 flex items-center gap-1.5 px-2 border-b border-white/10">
+            <div className="w-2 h-2 rounded-full bg-red-500/70" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
+            <div className="w-2 h-2 rounded-full bg-green-500/70" />
+            <div className="flex-1 mx-2 h-2.5 rounded bg-white/10" />
           </div>
-          <div className="p-2 space-y-1.5">
-            {[60, 45, 70, 35, 55].map((w, i) => (
-              <motion.div
-                key={i}
-                className="h-1.5 rounded-full bg-white/10"
-                style={{ width: `${w}%` }}
-                animate={{ opacity: [0.1, 0.25, 0.1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+          {/* Code lines */}
+          <div className="p-2.5 space-y-1.5">
+            {[
+              { w: '70%', color: 'rgba(249,115,22,0.5)' },
+              { w: '50%', color: 'rgba(236,72,153,0.4)' },
+              { w: '85%', color: 'rgba(255,255,255,0.15)' },
+              { w: '40%', color: 'rgba(34,197,94,0.4)' },
+              { w: '65%', color: 'rgba(249,115,22,0.3)' },
+              { w: '55%', color: 'rgba(255,255,255,0.12)' },
+            ].map((line, i) => (
+              <motion.div key={i} className="h-2 rounded-sm"
+                style={{ width: line.w, background: line.color }}
+                animate={{ opacity: [0.4, 0.9, 0.4] }}
+                transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
               />
             ))}
           </div>
@@ -134,73 +168,114 @@ function CourseScene({ courseId, gradient }: { courseId: string; gradient: strin
       </div>
     ),
     'ai-music': (
-      // Music: sound wave bars
-      <div className="absolute inset-0 flex items-end justify-center gap-1 pb-8 px-8">
-        {[...Array(16)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="flex-1 rounded-t-sm bg-white/12"
-            animate={{
-              height: [
-                `${20 + Math.sin(i * 0.8) * 30}%`,
-                `${50 + Math.cos(i * 0.5) * 40}%`,
-                `${20 + Math.sin(i * 0.8) * 30}%`,
-              ],
-            }}
-            transition={{ duration: 1.5 + (i % 3) * 0.3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.08 }}
-          />
-        ))}
+      // Music: bold equalizer bars
+      <div className="absolute inset-0 flex items-end justify-center gap-[3px] pb-6 px-6">
+        {[...Array(20)].map((_, i) => {
+          const baseH = 25 + Math.sin(i * 0.7) * 20
+          return (
+            <motion.div key={i} className="flex-1 rounded-t-sm"
+              style={{ background: `linear-gradient(to top, rgba(249,115,22,0.6), rgba(236,72,153,0.4))` }}
+              animate={{
+                height: [
+                  `${baseH}%`,
+                  `${Math.min(90, baseH + 40 + Math.random() * 20)}%`,
+                  `${baseH}%`,
+                ],
+              }}
+              transition={{ duration: 0.8 + (i % 4) * 0.2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.05 }}
+            />
+          )
+        })}
+        {/* Music note */}
+        <motion.div className="absolute top-3 right-4 text-2xl"
+          animate={{ y: [0, -5, 0], rotate: [0, 10, -10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >🎵</motion.div>
       </div>
     ),
     'ai-gamemaker': (
-      // Game maker: platformer elements
+      // Game maker: side-scroller platformer scene
       <div className="absolute inset-0">
-        {/* Ground */}
-        <div className="absolute bottom-4 left-4 right-4 h-3 bg-white/8 rounded" />
-        {/* Platforms */}
-        <motion.div className="absolute bottom-12 left-[20%] w-14 h-2 bg-white/12 rounded"
-          animate={{ x: [0, 15, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        />
-        <div className="absolute bottom-20 left-[50%] w-12 h-2 bg-white/10 rounded" />
-        <div className="absolute bottom-28 left-[30%] w-16 h-2 bg-white/8 rounded" />
-        {/* Player */}
-        <motion.div className="absolute w-4 h-6 bg-white/20 rounded-sm border border-white/30"
-          style={{ bottom: 16, left: '25%' }}
-          animate={{ y: [0, -20, 0], x: [0, 40, 80] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        {/* Coins */}
-        {[35, 55, 75].map((x, i) => (
-          <motion.div key={i} className="absolute w-3 h-3 rounded-full bg-yellow-400/20 border border-yellow-400/30"
-            style={{ left: `${x}%`, bottom: `${36 + i * 10}%` }}
-            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-            transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
+        {/* Sky stars */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div key={`s${i}`} className="absolute w-1 h-1 rounded-full bg-white/40"
+            style={{ left: `${10 + i * 12}%`, top: `${10 + (i % 3) * 15}%` }}
+            animate={{ opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
           />
         ))}
+        {/* Ground */}
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-green-900/40 border-t-2 border-green-500/30" />
+        {/* Platforms */}
+        <div className="absolute bottom-14 left-[15%] w-20 h-3 bg-amber-800/50 border border-amber-600/40 rounded-sm" />
+        <div className="absolute bottom-24 left-[45%] w-16 h-3 bg-amber-800/50 border border-amber-600/40 rounded-sm" />
+        <div className="absolute bottom-32 left-[25%] w-24 h-3 bg-amber-800/50 border border-amber-600/40 rounded-sm" />
+        {/* Player character */}
+        <motion.div className="absolute"
+          style={{ bottom: 32, left: '20%' }}
+          animate={{ x: [0, 60, 120, 60, 0], y: [0, -30, -10, -35, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <div className="w-5 h-7 bg-orange-500/60 rounded-t-md rounded-b-sm border border-orange-400/50 shadow-md shadow-orange-500/20" />
+        </motion.div>
+        {/* Coins */}
+        {[[40, 45], [55, 30], [70, 50]].map(([x, y], i) => (
+          <motion.div key={`c${i}`} className="absolute w-4 h-4 rounded-full border-2 border-yellow-400/60"
+            style={{ left: `${x}%`, bottom: `${y}%`, background: 'rgba(234,179,8,0.35)' }}
+            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.9, 0.5] }}
+            transition={{ duration: 1, repeat: Infinity, delay: i * 0.3 }}
+          />
+        ))}
+        {/* Enemy */}
+        <motion.div className="absolute bottom-8 right-[20%] w-6 h-6 bg-red-500/40 rounded-full border border-red-400/50"
+          animate={{ x: [-15, 15, -15] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
       </div>
     ),
     'ai-video': (
-      // Video: film strip / play button
+      // Video: film reel with play button
       <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center"
-          animate={{ scale: [1, 1.08, 1] }}
+        {/* Film strip bars */}
+        <div className="absolute top-0 left-0 right-0 h-6 flex">
+          {[...Array(10)].map((_, i) => (
+            <motion.div key={`t${i}`} className="flex-1 mx-0.5 bg-white/8 rounded-sm border border-white/10"
+              animate={{ opacity: [0.1, 0.2, 0.1] }}
+              transition={{ duration: 1, repeat: Infinity, delay: i * 0.1 }}
+            />
+          ))}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-6 flex">
+          {[...Array(10)].map((_, i) => (
+            <motion.div key={`b${i}`} className="flex-1 mx-0.5 bg-white/8 rounded-sm border border-white/10"
+              animate={{ opacity: [0.1, 0.2, 0.1] }}
+              transition={{ duration: 1, repeat: Infinity, delay: i * 0.1 + 0.5 }}
+            />
+          ))}
+        </div>
+        {/* Central play button */}
+        <motion.div className="relative z-10"
+          animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-0 h-0 border-l-[12px] border-l-white/25 border-y-[8px] border-y-transparent ml-1" />
+          <div className="w-20 h-20 rounded-full border-3 border-white/30 flex items-center justify-center"
+            style={{ background: 'rgba(255,255,255,0.08)', borderWidth: 3 }}
+          >
+            <div className="w-0 h-0 ml-1.5" style={{
+              borderLeft: '16px solid rgba(255,255,255,0.5)',
+              borderTop: '10px solid transparent',
+              borderBottom: '10px solid transparent',
+            }} />
+          </div>
         </motion.div>
-        {/* Film strip holes */}
-        <div className="absolute left-3 top-0 bottom-0 w-4 flex flex-col justify-around">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="w-3 h-2 rounded-sm bg-white/6 border border-white/10" />
-          ))}
-        </div>
-        <div className="absolute right-3 top-0 bottom-0 w-4 flex flex-col justify-around">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="w-3 h-2 rounded-sm bg-white/6 border border-white/10" />
-          ))}
-        </div>
+        {/* Recording dot */}
+        <motion.div className="absolute top-8 right-4 flex items-center gap-1.5"
+          animate={{ opacity: [0.4, 1, 0.4] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+          <span className="text-[10px] text-white/50 font-mono">REC</span>
+        </motion.div>
       </div>
     ),
   }
