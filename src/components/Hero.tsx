@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import { SUBSCRIBE_URL } from '../data/config'
 
 function GridBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -193,14 +194,12 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="#courses"
+            href={SUBSCRIBE_URL}
             className="group relative px-8 py-3.5 rounded-full text-white font-semibold text-base overflow-hidden transition-all hover:scale-[1.03] active:scale-[0.98]"
           >
-            {/* Animated gradient border */}
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-orange via-neon-pink to-neon-pink animate-gradient bg-[length:200%_200%]" />
-            <span className="absolute inset-[1px] rounded-full bg-dark-900" />
-            <span className="absolute inset-[1px] rounded-full bg-gradient-to-r from-neon-orange/20 to-neon-pink/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative z-10">Explore Courses →</span>
+            <span className="absolute inset-0 rounded-full bg-neon-green" />
+            <span className="absolute inset-0 rounded-full bg-green-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative z-10 text-dark-900 font-bold">Start Learning →</span>
           </a>
           <a
             href="#how-it-works"

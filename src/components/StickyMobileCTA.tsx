@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { SUBSCRIBE_URL } from '../data/config'
 
 export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false)
@@ -19,7 +20,7 @@ export function StickyMobileCTA() {
           <p className="text-sm font-semibold text-white truncate">Subscribe & start building</p>
         </div>
         <a
-          href="#courses"
+          href={SUBSCRIBE_URL}
           className="flex-shrink-0 px-5 py-2.5 rounded-full bg-neon-green text-dark-900 text-sm font-bold whitespace-nowrap"
         >
           Start Learning

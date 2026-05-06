@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { SUBSCRIBE_URL } from '../data/config'
 
 const links = [
   { label: 'Courses', href: '#courses' },
@@ -45,7 +46,7 @@ export function Navbar() {
           ))}
           <div className="w-px h-4 bg-white/[0.06] mx-2" />
           <a
-            href="#courses"
+            href={SUBSCRIBE_URL}
             className="ml-1 px-5 py-1.5 rounded-lg bg-neon-green text-dark-900 text-sm font-bold hover:bg-green-400 transition-all shadow-md shadow-neon-green/20"
           >
             Start Learning
@@ -78,7 +79,7 @@ export function Navbar() {
                   {l.label}
                 </a>
               ))}
-              <a href="#courses" onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 rounded-lg bg-neon-green text-dark-900 text-sm font-bold text-center hover:bg-green-400 transition-all">
+              <a href={SUBSCRIBE_URL} onClick={() => setOpen(false)} className="mt-2 px-4 py-2.5 rounded-lg bg-neon-green text-dark-900 text-sm font-bold text-center hover:bg-green-400 transition-all">
                 Start Learning
               </a>
             </div>

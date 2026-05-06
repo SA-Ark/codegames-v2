@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { SUBSCRIBE_URL } from '../data/config'
 import { courses, type Course } from '../data/courses'
 import { curricula } from '../data/curriculum'
 import { GlowCard } from './GlowCard'
@@ -465,7 +466,7 @@ function CurriculumModal({ course, onClose }: { course: Course; onClose: () => v
             <a href="#courses" className="px-5 py-2.5 rounded-full bg-white/[0.06] border border-white/[0.06] text-white text-sm font-medium hover:bg-white/[0.1] transition-all">
               Book a Call
             </a>
-            <a href={course.checkoutUrl} className="px-5 py-2.5 rounded-full bg-neon-green text-dark-900 font-bold hover:bg-green-400 hover:scale-105 transition-all text-sm">
+            <a href={SUBSCRIBE_URL} className="px-5 py-2.5 rounded-full bg-neon-green text-dark-900 font-bold hover:bg-green-400 hover:scale-105 transition-all text-sm">
               Start Learning →
             </a>
           </div>
